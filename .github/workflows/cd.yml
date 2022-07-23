@@ -27,7 +27,7 @@ jobs:
       - name: Installs ssh key
         uses: shimataro/ssh-key-action@v2
         with:
-          key: ${{SSH_KEY}}
+          key: ${{secrets.SSH_KEY}}
           known_hosts: unnecessary
 
       - name: Adding Known Hosts
@@ -35,4 +35,4 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Connect so ssh
-        run: ssh -I ${{secrets.SSH_KEY}}} root@${{ secrets.SSH_HOST }}
+        run: ssh -I ${{secrets.SSH_KEY}}} root@${{secrets.SSH_HOST }}
